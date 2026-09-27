@@ -9,6 +9,7 @@ class UserHomePage:
         st.write(
             {
                 "IP Address": ip_address,
+                "Headers": dict(st.context.headers)
             }
         )
 
