@@ -26,7 +26,9 @@ class MongoDB:
             self.connect()
 
             db = self.client["RecordVaultDB"]
-            db.user_records.insert_one(data.model_dump())
+
+            filter = {"email_id": data.email_id}
+            db.user_records.update_one(filter, data.model_dump(), upsert=True)
 
         except Exception as e:
             print("Error:", e)
