@@ -1,0 +1,2 @@
+USERROLE = "user"
+ADMINROLE = "admin"
