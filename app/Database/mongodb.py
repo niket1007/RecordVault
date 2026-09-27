@@ -28,7 +28,8 @@ class MongoDB:
             db = self.client["RecordVaultDB"]
 
             filter = {"email_id": data.email_id}
-            db.user_records.update_one(filter, data.model_dump(), upsert=True)
+            data = {"$set": data.model_dump()}
+            db.user_records.update_one(filter, data, upsert=True)
 
         except Exception as e:
             print("Error:", e)
